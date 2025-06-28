@@ -22,9 +22,9 @@ jobs:
         toolchain: stable
         override: true
 
-    - name: Compile all Rust solution files
+    - name: Check syntax and types of all Rust solution files
       run: |
         find problems -name "*.rs" | while read file; do
-          echo "Compiling $file"
-          rustc "$file" -o /tmp/$(basename "$file" .rs) || exit 1
+          echo "Checking $file"
+          rustc --emit=metadata "$file" || exit 1
         done

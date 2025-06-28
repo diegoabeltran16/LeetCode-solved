@@ -1,4 +1,4 @@
-// Returns the integer value of a single Roman numeral character
+// Returns the integer value of a single Roman numeral character :)
 int val(char c){
     switch(c){
         case 'I': return 1;
