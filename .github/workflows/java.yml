@@ -1,0 +1,30 @@
+name: Java Build Check
+
+on:
+  push:
+    paths:
+      - '**.java'
+  pull_request:
+    paths:
+      - '**.java'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Compile all Java solution files
+      run: |
+        find problems -name "*.java" | while read file; do
+          echo "Compiling $file"
+          javac "$file" || exit 1
+        done

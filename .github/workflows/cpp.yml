@@ -1,0 +1,27 @@
+name: C++ Build Check
+
+on:
+  push:
+    paths:
+      - '**.cpp'
+  pull_request:
+    paths:
+      - '**.cpp'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install g++ compiler
+      run: sudo apt-get update && sudo apt-get install -y build-essential
+
+    - name: Compile all C++ solution files to object files
+      run: |
+        find problems -name "*.cpp" | while read file; do
+          echo "Compiling $file"
+          g++ -c "$file" -o /tmp/$(basename "$file" .cpp).o || exit 1
+        done
