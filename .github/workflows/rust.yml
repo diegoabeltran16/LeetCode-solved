@@ -1,0 +1,30 @@
+name: Rust Build Check
+
+on:
+  push:
+    paths:
+      - '**.rs'
+  pull_request:
+    paths:
+      - '**.rs'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install Rust toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+
+    - name: Compile all Rust solution files
+      run: |
+        find problems -name "*.rs" | while read file; do
+          echo "Compiling $file"
+          rustc "$file" -o /tmp/$(basename "$file" .rs) || exit 1
+        done
