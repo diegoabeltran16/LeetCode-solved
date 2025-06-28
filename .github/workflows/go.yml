@@ -1,0 +1,29 @@
+name: Go Build Check
+
+on:
+  push:
+    paths:
+      - '**.go'
+  pull_request:
+    paths:
+      - '**.go'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.20'
+
+    - name: Compile all Go solution files
+      run: |
+        find problems -name "*.go" | while read file; do
+          echo "Compiling $file"
+          go build "$file" || exit 1
+        done

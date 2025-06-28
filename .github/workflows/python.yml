@@ -1,0 +1,29 @@
+name: Python Run Check
+
+on:
+  push:
+    paths:
+      - '**.py'
+  pull_request:
+    paths:
+      - '**.py'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Run all Python solution files
+      run: |
+        find problems -name "*.py" | while read file; do
+          echo "Running $file"
+          python "$file" || exit 1
+        done

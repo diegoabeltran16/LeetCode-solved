@@ -1,0 +1,29 @@
+name: JavaScript Run Check
+
+on:
+  push:
+    paths:
+      - '**.js'
+  pull_request:
+    paths:
+      - '**.js'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Run all JavaScript solution files
+      run: |
+        find problems -name "*.js" | while read file; do
+          echo "Running $file"
+          node "$file" || exit 1
+        done
