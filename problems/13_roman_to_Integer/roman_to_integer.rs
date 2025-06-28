@@ -1,10 +1,18 @@
-/// LeetCode Problem 13: Roman to Integer :)
+/// # LeetCode Problem 13: Roman to Integer
 ///
 /// This module provides a solution for converting a Roman numeral string
 /// into its corresponding integer value.
 ///
 /// The implemented function handles standard Roman numeral notation,
 /// including subtractive combinations (e.g., IV for 4, IX for 9, etc.).
+
+/// Defines an empty `Solution` struct to match LeetCode's expected structure.
+///
+/// In LeetCode, solutions are often implemented as methods of a `Solution` struct.
+/// This placeholder struct enables the `impl Solution` block to compile
+/// without affecting runtime or functionality.
+struct Solution;
+
 impl Solution {
     /// Converts a Roman numeral string to its integer representation.
     ///
