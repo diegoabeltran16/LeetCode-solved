@@ -1,5 +1,10 @@
 # LeetCode-solved - LeetCode Multi-Language Solutions
 
+![License](https://img.shields.io/github/license/diegoabeltran16/LeetCode-solved.svg)
+![Last Commit](https://img.shields.io/github/last-commit/diegoabeltran16/LeetCode-solved.svg)
+![Repo Size](https://img.shields.io/github/repo-size/diegoabeltran16/LeetCode-solved.svg)
+![LeetCode Problems Solved](https://img.shields.io/badge/LeetCode-1_problem_solved-orange)
+
 This repository contains my solutions to LeetCode problems implemented in **multiple programming languages**, including:
 
 - Rust
