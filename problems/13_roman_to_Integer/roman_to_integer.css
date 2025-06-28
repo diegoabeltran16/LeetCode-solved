@@ -1,0 +1,45 @@
+using System.Text.RegularExpressions;
+using AE = System.ArgumentException;
+
+public class Solution
+{
+    public int RomanToInt(string s)
+    {
+        Dictionary<char, int> rn = new Dictionary<char, int>();
+
+        rn.Add('I', 1);
+        rn.Add('V', 5);
+        rn.Add('X', 10);
+        rn.Add('L', 50);
+        rn.Add('C', 100);
+        rn.Add('D', 500);
+        rn.Add('M', 1000);
+
+        int returnValue = 0;
+        char prevDom = 'I';
+        for (int i = s.Length-1; i >= 0; i--)
+        {
+
+            if (rn[s[i]] < rn[prevDom])
+            {
+                returnValue -= rn[s[i]];
+            }
+            else
+            {
+                returnValue += rn[s[i]];
+            }
+
+            if (rn[s[i]] > rn[prevDom]) {
+                prevDom = s[i];
+            }
+
+            if (returnValue > 3999)
+            {
+                throw new AE("Value out of range.");
+            }
+
+
+        }
+        return returnValue;
+    }
+}
