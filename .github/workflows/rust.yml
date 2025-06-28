@@ -26,5 +26,5 @@ jobs:
       run: |
         find problems -name "*.rs" | while read file; do
           echo "Checking $file"
-          rustc --emit=metadata "$file" || exit 1
+          rustc --crate-type=lib "$file" || exit 1
         done
