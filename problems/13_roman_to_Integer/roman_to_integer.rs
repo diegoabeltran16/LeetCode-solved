@@ -1,8 +1,40 @@
+/// LeetCode Problem 13: Roman to Integer
+///
+/// This module provides a solution for converting a Roman numeral string
+/// into its corresponding integer value.
+///
+/// The implemented function handles standard Roman numeral notation,
+/// including subtractive combinations (e.g., IV for 4, IX for 9, etc.).
 impl Solution {
+    /// Converts a Roman numeral string to its integer representation.
+    ///
+    /// # Arguments
+    ///
+    /// * `s` - A `String` containing the Roman numeral (e.g., "MCMXCIV")
+    ///
+    /// # Returns
+    ///
+    /// * `i32` - The integer value corresponding to the Roman numeral.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// let result = Solution::roman_to_int("MCMXCIV".to_string());
+    /// assert_eq!(result, 1994);
+    /// ```
     pub fn roman_to_int(s: String) -> i32 {
         let s_chars: Vec<char> = s.chars().collect();
         let mut res = 0;
 
+        /// Returns the integer value for a single Roman numeral character.
+        ///
+        /// # Arguments
+        ///
+        /// * `c` - A Roman numeral character (I, V, X, L, C, D, M)
+        ///
+        /// # Returns
+        ///
+        /// * `i32` - The integer value (e.g., 'I' -> 1, 'V' -> 5)
         fn val(c: char) -> i32 {
             match c {
                 'I' => 1,
@@ -16,6 +48,8 @@ impl Solution {
             }
         }
 
+        // Iterate through each character, adding or subtracting its value
+        // depending on whether it is followed by a larger numeral.
         for i in 0..s_chars.len() {
             let current = val(s_chars[i]);
             let next = if i + 1 < s_chars.len() { val(s_chars[i + 1]) } else { 0 };
