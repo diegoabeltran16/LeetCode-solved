@@ -1,11 +1,24 @@
-// MCMXCIV
+package main
 
+import "fmt"
+
+// romanToInt converts a Roman numeral string to its integer representation.
+//
+// It iterates through the string, adding values for each numeral,
+// and handles subtractive combinations (e.g., IV=4, IX=9, etc.) by
+// using the helper function lookAhead.
+//
+// Example:
+//   fmt.Println(romanToInt("MCMXCIV")) // Output: 1994
+//
 func romanToInt(s string) int {
     count := 0
     l := len(s)
 
+    // Iterate through each character in the string
     for i := 0; i < l; i++ {
         c := s[i]
+
         switch c {
         case 'I':
             add, ok := lookAhead(s, c, i, l)
@@ -13,7 +26,7 @@ func romanToInt(s string) int {
                 count += 1
             } else {
                 count += add
-                i++
+                i++ // Skip next character as it was part of subtractive combination
             }
         case 'V':
             count += 5
@@ -45,8 +58,11 @@ func romanToInt(s string) int {
     return count
 }
 
+// lookAhead checks if the current character and the next one form a subtractive combination.
+//
+// It returns the combined value if a valid subtractive pair is found, and a boolean indicating success.
 func lookAhead(s string, c byte, i int, l int) (int, bool) {
-    if i + 1 >= l {
+    if i+1 >= l {
         return -1, false
     }
 
@@ -77,4 +93,9 @@ func lookAhead(s string, c byte, i int, l int) (int, bool) {
     }
 
     return -1, false
+}
+
+func main() {
+    // Example usage for CI validation
+    fmt.Println(romanToInt("MCMXCIV")) // Output: 1994
 }
