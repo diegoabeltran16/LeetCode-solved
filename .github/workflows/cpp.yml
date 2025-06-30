@@ -23,5 +23,6 @@ jobs:
       run: |
         find problems -name "*.cpp" | while read file; do
           echo "Compiling $file"
-          g++ -c "$file" -o /tmp/$(basename "$file" .cpp).o || exit 1
+          # Compile with C++17 standard for modern features compatibility
+          g++ -std=c++17 -c "$file" -o /tmp/$(basename "$file" .cpp).o || exit 1
         done
