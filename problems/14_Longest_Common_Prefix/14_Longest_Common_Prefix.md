@@ -68,3 +68,26 @@ There is no common prefix among the input strings.
 > **Learning in the AI era:**  
 > Understanding string scanning logic across languages is more important than memorizing syntax.
 
+## Comparassion table results
+| **#** | **Language**   | **Runtime** | **Memory Usage** | **Approach Summary**                                                 | **Strengths**                                                | **Trade-offs**                                                 |
+| ----- | -------------- | ----------- | ---------------- | -------------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------- |
+| 1     | **Rust**       | **0 ms**    | **2.2 MB**       | Prefix reduction loop with slice mutability                          | Fastest runtime and minimal memory; strong safety guarantees | Requires ownership and borrow checker understanding            |
+| 2     | **Go**         | 0 ms        | **4.2 MB**       | Prefix trimming via range checks; efficient string slicing           | Low memory and fast; clean syntax for concurrency readiness  | Less ergonomic for advanced data structures                    |
+| 3     | **C**          | 0 ms        | **8.1 MB**       | Character-by-character prefix comparison with null-termination logic | Direct memory access; simple compiled performance            | Verbose; manual memory safety responsibility                   |
+| 4     | **C++**        | 0-3 ms      | \~12 MB          | String slicing with substr and iterative character matching          | Flexible standard library; competitive runtime               | More complex syntax; potential for performance variance        |
+| 5     | **Python**     | 0 ms        | **12.6 MB**      | Prefix reduction via startswith in a while loop                      | Extremely readable; concise logic                            | Slower for larger inputs; interpreted overhead                 |
+| 6     | **Java**       | 0-1 ms      | \~41 MB          | Prefix reduction with substring trimming                             | Strong typing; JVM optimizations; readable                   | Higher memory footprint due to JVM                             |
+| 7     | **C#**         | 0-1 ms      | \~43 MB          | Prefix reduction with substring trimming; similar to Java            | Fast under .NET JIT; readable syntax                         | Higher memory usage due to .NET runtime                        |
+| 8     | **JavaScript** | 0-1 ms      | \~54 MB          | Prefix slice reduction with while + indexOf logic                    | Fast for interpreted language; simple implementation         | Highest memory usage (V8 runtime); single-threaded limitations |
+
+## 🔍 **Key Insights**
+
+✅ **Rust leads** with minimal memory and fastest runtime, ideal for system-level optimizations.
+
+✅ **Go and C** deliver optimal speed with low memory use and simplicity.
+
+✅ **C++, Java, and C#** perform efficiently but come with higher runtime memory footprints due to their managed runtimes or language abstractions.
+
+✅ **JavaScript** remains surprisingly performant but with **very high memory usage** due to the V8 engine.
+
+✅ **Python is readable and elegant**, but interpreted performance remains a limitation for large-scale high-frequency calls.
