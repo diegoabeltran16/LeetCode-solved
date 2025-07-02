@@ -5,18 +5,7 @@
 ![Repo Size](https://img.shields.io/github/repo-size/diegoabeltran16/LeetCode-solved.svg)
 ![LeetCode Problems Solved](https://img.shields.io/badge/LeetCode-1_problem_solved-orange)
 
-This repository contains my solutions to LeetCode problems implemented in **multiple programming languages**, including:
-
-- Rust
-- C
-- C++
-- Go
-- Java
-- JavaScript
-- Python
-- C#
-
----
+This repository contains my solutions to LeetCode problems implemented in **multiple programming languages**, including the ones in:
 
 ## 🚀 **Automated CI Workflows**
 
@@ -24,14 +13,14 @@ Each push or pull request triggers **automated build and syntax checks** for the
 
 | Language | Build Status |
 |----------|--------------|
-| 📝 **C** | ![C Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/c.yml/badge.svg) |
-| 🦫 **Go** | ![Go Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/go.yml/badge.svg) |
-| 🔷 **C#** | ![C# Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/csharp.yml/badge.svg) |
-| ☕ **Java** | ![Java Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/java.yml/badge.svg) |
-| 🦀 **Rust** | ![Rust Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/rust.yml/badge.svg) |
-| 📝 **C++** | ![C++ Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/cpp.yml/badge.svg) |
-| 🐍 **Python** | ![Python Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/python.yml/badge.svg) |
-| 💻 **JavaScript** | ![JavaScript Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/javascript.yml/badge.svg) |
+|**C**| ![C Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/c.yml/badge.svg) |
+|**Go**| ![Go Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/go.yml/badge.svg) |
+|**C#**| ![C# Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/csharp.yml/badge.svg) |
+|**Java**| ![Java Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/java.yml/badge.svg) |
+|**Rust**| ![Rust Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/rust.yml/badge.svg) |
+|**C++**| ![C++ Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/cpp.yml/badge.svg) |
+|**Python**| ![Python Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/python.yml/badge.svg) |
+|**JavaScript**| ![JavaScript Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/javascript.yml/badge.svg) |
 
 
 
