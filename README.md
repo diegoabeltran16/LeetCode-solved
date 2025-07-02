@@ -1,4 +1,4 @@
-# LeetCode-solved - LeetCode Multi-Language Solutions
+# LeetCode-solved - Multi-Language Solutions
 
 ![License](https://img.shields.io/github/license/diegoabeltran16/LeetCode-solved.svg)
 ![Last Commit](https://img.shields.io/github/last-commit/diegoabeltran16/LeetCode-solved.svg)
