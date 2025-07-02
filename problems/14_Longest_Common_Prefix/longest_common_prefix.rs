@@ -1,3 +1,4 @@
+struct Solution;
 impl Solution {
     /// Returns the longest common prefix among a vector of strings.
     ///
