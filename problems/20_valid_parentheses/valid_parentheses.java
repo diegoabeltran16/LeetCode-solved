@@ -80,3 +80,11 @@ class ValidParentheses {
     }
 }
 
+
+// 📝 **Story for Understanding Both Approaches**
+// Imagine you are a **castle gatekeeper**.
+// In the **Direct Comparison approach**, you have **three separate keys hanging on your belt**: one for round gates, one for curly gates, one for square gates. Every time someone wants to leave, you check manually which key matches the gate they are at.
+// In the **Map-Based approach**, you keep a **magic book** that tells you *“for every closing gate symbol, here is its matching opening symbol”*. So when someone wants to leave, you open your book, look up the closing symbol, and confirm it matches the last gate opened.
+// - **Direct comparison is faster if you only guard three types of gates**, because you don't need to consult the book.
+// - **Map-based approach is better if the kingdom adds many new gate types**, because your book scales easily, and you don’t need to write new if-else rules for each gate.
+
