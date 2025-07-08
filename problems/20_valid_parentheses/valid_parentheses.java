@@ -1,12 +1,11 @@
 // Contains two approaches: direct comparison and map-based matching.
-
-package valid_parentheses;
+// Note: Class is package-private to allow filename mismatch without 'public'.
 
 import java.util.Stack;
 import java.util.Map;
 import java.util.HashMap;
 
-public class ValidParentheses {
+class ValidParentheses {
 
     /**
      * Direct comparison approach.
@@ -23,9 +22,7 @@ public class ValidParentheses {
             if (ch == '[' || ch == '{' || ch == '(') {
                 st.push(ch);
             } else {
-                if (st.isEmpty()) {
-                    return false;
-                }
+                if (st.isEmpty()) return false;
                 if ((ch == ']' && st.peek() == '[') ||
                     (ch == '}' && st.peek() == '{') ||
                     (ch == ')' && st.peek() == '(')) {
