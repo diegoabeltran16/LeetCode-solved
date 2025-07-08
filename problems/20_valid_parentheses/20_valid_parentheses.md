@@ -120,7 +120,7 @@ Given a string `s` containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'
 
 The choice of approach (Memorizer, Scholar, Preemptive) depends on **problem constraints, extensibility needs, and performance goals**. Understanding these patterns deeply ensures confidence in interviews, production, and compiler-level parsing challenges.
 
-# 🏰 **The Castle of Brackets: A Multi-Gatekeeper Tale**
+# 🏰 **The Castle of Brackets: A Multi-Gatekeeper Tale (Code Integrated)**
 
 In the kingdom of **Syntaxia**, there stood a grand **Castle of Brackets** with three ancient gates:
 
@@ -130,47 +130,52 @@ In the kingdom of **Syntaxia**, there stood a grand **Castle of Brackets** with 
 
 To protect the castle from intruders and syntax errors, three types of **Gatekeepers** served with distinct skills:
 
-### 👑 **1. The Memorizer Gatekeeper (Direct Comparison)**
+### 👑 **1. The Memorizer Gatekeeper (Direct Comparison Approach)**
 
-They carried **three keys on their belt** for each gate type, checking each closing gate manually against their memorised opener.
-
+* **Code:** `if (ch == ')' && stack.top() != '(')` (C, C++, Java direct if-else)
+* **Data Structures:** Stack (array or STL stack)
+* **Languages:** C (`bool isValid(char* s)`), C++ (`bool isValid(string s)`), Java (`isValidDirect(String s)`), JS (`isValidExplicit`)
 * **Strength:** Fastest and simplest when gate types are few and known.
 * **Trade-off:** Hard to extend when new gates are introduced.
 
-### 👑 **2. The Scholar Gatekeeper (Map-based)**
+### 👑 **2. The Scholar Gatekeeper (Map-based Approach)**
 
-They wielded a **Magic Ledger (HashMap/Object/Dictionary)** listing every gate type and its match.
-
+* **Code:** `pairs = {')':'(', ']':'[', '}':'{'}` with lookup `pairs[ch]` (Python, Java HashMap, JS Object, Rust HashMap)
+* **Data Structures:** Stack + Map/Dictionary
+* **Languages:** Python (`isValid(s)`), Java (`isValidMap(s)`), JS (`isValid`), Rust (`is_valid(s: String)`), Go (`IsValid(s string) bool`)
 * **Strength:** Easily scalable to new gate types.
 * **Trade-off:** Slightly slower due to reading their ledger each time.
 
-### 👑 **3. The Preemptive Gatekeeper (Push Expected Closer)**
+### 👑 **3. The Preemptive Gatekeeper (Push Expected Closer Approach)**
 
-They wrote the **expected closing gate directly onto their scroll (stack)** each time they opened a gate.
-
-* **Strength:** Fastest approach as they only check against expected closers.
+* **Code:** `if (ch == '(') stack.push(')');` then `if (stack.pop() != ch)` (Java/C# optimized)
+* **Data Structures:** Stack only, pushes expected closer
+* **Languages:** Java (`isValid` optimized), C# (`IsValidPreemptive`)
+* **Strength:** Fastest runtime as they only check against expected closers.
 * **Trade-off:** Less intuitive for beginners; requires thinking ahead.
 
 ---
 
-### ⚔️ **The Tale of Multi-Gatekeeper Strategy**
+### ⚔️ **The Tale of Multi-Gatekeeper Strategy (With Algorithms)**
 
-On **peaceful days with few travellers**, the Memorizer excelled with quick manual checks.
+On **peaceful days with few travellers**, the Memorizer (direct comparison if-else) excelled with quick manual checks.
 
-During **busy festivals with diverse visitors**, the Scholar triumphed by consulting their ledger without memorising each type.
+During **busy festivals with diverse visitors**, the Scholar (stack + map-based matching) triumphed by consulting their ledger without memorising each type.
 
-When the kingdom announced **new gates for dragons `< >` or fairies `<>`**, the Scholar easily updated their book, while the Memorizer struggled to remember new symbols.
+When the kingdom announced **new gates for dragons `< >` or fairies `<>`**, the Scholar easily updated their book (just extending the HashMap/Object), while the Memorizer needed new if-else rules.
 
-Finally, in **high-speed tournaments where efficiency was critical**, the Preemptive Gatekeeper ruled, writing expected closers before any traveller attempted exit.
+Finally, in **high-speed tournaments where efficiency was critical**, the Preemptive Gatekeeper (expected closer push) ruled, writing expected closers before any traveller attempted exit, reducing lookup time and branching.
 
 ---
 
-### 📝 **Mentor’s Wisdom**
+### 📝 **Mentor’s Wisdom (Language, Function, Algorithm)**
 
-✅ Use **Memorizer Gatekeeper** when gate types are known and minimal.
-✅ Use **Scholar Gatekeeper** for scalable, maintainable solutions.
-✅ Use **Preemptive Gatekeeper** when performance is paramount.
+✅ Use **Memorizer Gatekeeper** (Direct Comparison, O(n), C/C++/Java explicit if-else) when gate types are known and minimal.
+✅ Use **Scholar Gatekeeper** (Map-based, O(n), Python dict, Rust HashMap, Go map) for scalable, maintainable solutions.
+✅ Use **Preemptive Gatekeeper** (Push Expected Closer, O(n), Java/C# optimized) when performance is paramount.
 
-Thus, the Castle of Brackets remained protected, its gates closed in perfect order, as each Gatekeeper used their strength wisely.
+Thus, the Castle of Brackets remained protected, its gates closed in perfect order, as each Gatekeeper used their algorithmic strength wisely.
+
+
 
 
