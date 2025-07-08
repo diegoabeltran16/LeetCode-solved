@@ -63,3 +63,32 @@ testCases.forEach(s => console.log(`Input: ${s}, Output: ${isValidExplicit(s)}`)
 
 // Export for external testing if required
 module.exports = { isValid, isValidExplicit };
+
+/**
+ * Story for JavaScript approaches:
+ *
+ * **Concise Mapping-Based Approach Story**:
+ * Imagine you have a **magic dictionary scroll** that tells you exactly which opening bracket matches each closing bracket.
+ * Whenever you see a closing bracket, you quickly look it up in your scroll to see the expected opener and check the last opened gate on your stack.
+ *
+ * **Why use it?**
+ * Fast when you have a neat mapping prepared – like having pre-written notes during an open-book exam.
+ *
+ * ---
+ *
+ * **Explicit Direct Comparison Approach Story**:
+ * Here, you are the **gatekeeper memorizing each gate type’s match manually**.
+ * You check directly:
+ * - “If I see ')', is the top '(' ?”
+ * - “If I see ']', is the top '[' ?”
+ * - “If I see '}', is the top '{' ?”
+ *
+ * **Why use it?**
+ * You don’t rely on external mappings. It’s simple, direct, and fast when only a few types exist.
+ *
+ * ---
+ *
+ * ⚖️ **Comparison with Java Approaches:**
+ * The logic is identical – only syntax differs. Both languages use the same stack-based reasoning and pattern.
+ *
+ */
