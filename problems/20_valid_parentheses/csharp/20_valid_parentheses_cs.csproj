@@ -7,9 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="valid_parentheses_problem.cs" />
-    <Compile Include="valid_parentheses_solution.cs" />
-  </ItemGroup>
-
 </Project>
