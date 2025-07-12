@@ -1,72 +1,67 @@
-/// LeetCode #21: Merge Two Sorted Lists
-///
-/// Given the heads of two sorted linked lists `l1` and `l2`, merge them into a
-/// single sorted linked list by reusing existing nodes (O(1) extra space) in O(n + m) time.
-///
-/// # Definition for singly-linked list
-/// ```ignore
-/// #[derive(PartialEq, Eq, Clone, Debug)]
-/// pub struct ListNode {
-///     pub val: i32,
-///     pub next: Option<Box<ListNode>>,
-/// }
-///
-/// impl ListNode {
-///     #[inline]
-///     pub fn new(val: i32) -> Self {
-///         ListNode { val, next: None }
-///     }
-/// }
-/// ```
+/// Definition of a singly-linked list node.
+/// Uses `Option<Box<ListNode>>` for ownership-safe, in-place manipulation.
+#[derive(PartialEq, Eq, Clone, Debug)]
+pub struct ListNode {
+    pub val: i32,
+    pub next: Option<Box<ListNode>>,
+}
 
-/// Merges two sorted linked lists `l1` and `l2` in-place and returns the head of the merged list.
-///
-/// # Arguments
-/// * `l1` - First sorted list.
-/// * `l2` - Second sorted list.
-///
-/// # Returns
-/// A new sorted linked list containing all nodes from `l1` and `l2`.
-///
-/// # Complexity
-/// * Time: O(n + m)
-/// * Space: O(1) extra
-pub fn merge_two_lists(
-    mut l1: Option<Box<ListNode>>,
-    mut l2: Option<Box<ListNode>>,
-) -> Option<Box<ListNode>> {
-    // Dummy head to simplify edge cases
-    let mut dummy = Box::new(ListNode::new(0));
-    let mut tail = &mut dummy;
-
-    // Merge by selecting the smaller head from l1 or l2
-    while l1.is_some() && l2.is_some() {
-        let v1 = l1.as_ref().unwrap().val;
-        let v2 = l2.as_ref().unwrap().val;
-        if v1 < v2 {
-            // Take node from l1
-            let mut node = l1.unwrap();
-            l1 = node.next.take();
-            tail.next = Some(node);
-        } else {
-            // Take node from l2
-            let mut node = l2.unwrap();
-            l2 = node.next.take();
-            tail.next = Some(node);
-        }
-        tail = tail.next.as_mut().unwrap();
+impl ListNode {
+    /// Creates a new list node with given value.
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        ListNode { val, next: None }
     }
+}
 
-    // Attach remaining nodes
-    tail.next = if l1.is_some() { l1 } else { l2 };
-    dummy.next
+/// Solution struct to group our method for LeetCode.
+pub struct Solution;
+
+impl Solution {
+    /// Merge two sorted linked lists `l1` and `l2` in-place and return the head of the merged list.
+    ///
+    /// # Complexity
+    /// - Time: O(n + m) where n and m are the lengths of `l1` and `l2`.
+    /// - Space: O(1) extra, reuses existing nodes.
+    pub fn merge_two_lists(
+        mut l1: Option<Box<ListNode>>,
+        mut l2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
+        // Dummy node simplifies edge cases (empty inputs, head insertion)
+        let mut dummy = Box::new(ListNode::new(0));
+        let mut tail = &mut dummy;
+
+        // Continue until one list is exhausted
+        while l1.is_some() && l2.is_some() {
+            // Compare head values safely with as_ref().unwrap().val
+            if l1.as_ref().unwrap().val < l2.as_ref().unwrap().val {
+                // Detach node from l1
+                let mut node = l1.unwrap();
+                l1 = node.next.take();
+                tail.next = Some(node);
+            } else {
+                // Detach node from l2
+                let mut node = l2.unwrap();
+                l2 = node.next.take();
+                tail.next = Some(node);
+            }
+            // Advance the tail
+            tail = tail.next.as_mut().unwrap();
+        }
+
+        // Attach any remaining nodes (only one of l1/l2 is non-empty)
+        tail.next = if l1.is_some() { l1 } else { l2 };
+
+        // Skip dummy and return the real merged head
+        dummy.next
+    }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    /// Helper: build a linked list from slice
+    /// Builds a linked list from a slice, returning its head.
     fn build_list(vals: &[i32]) -> Option<Box<ListNode>> {
         let mut dummy = Box::new(ListNode::new(0));
         let mut tail = &mut dummy;
@@ -77,15 +72,14 @@ mod tests {
         dummy.next
     }
 
-    /// Helper: convert linked list to Vec
-    fn list_to_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
-        let mut v = Vec::new();
-        let mut curr = head;
-        while let Some(node) = curr {
-            v.push(node.val);
-            curr = node.next;
+    /// Converts a linked list to a Vec<i32> for easy comparison.
+    fn list_to_vec(mut head: Option<Box<ListNode>>) -> Vec<i32> {
+        let mut result = vec![];
+        while let Some(node) = head {
+            result.push(node.val);
+            head = node.next;
         }
-        v
+        result
     }
 
     #[test]
@@ -95,11 +89,12 @@ mod tests {
             (vec![], vec![0], vec![0]),
             (vec![1, 2, 4], vec![1, 3, 4], vec![1, 1, 2, 3, 4, 4]),
         ];
+
         for (a, b, expected) in cases {
             let l1 = build_list(&a);
             let l2 = build_list(&b);
-            let out = merge_two_lists(l1, l2);
-            assert_eq!(list_to_vec(out), expected);
+            let merged = Solution::merge_two_lists(l1, l2);
+            assert_eq!(list_to_vec(merged), expected);
         }
     }
 }
