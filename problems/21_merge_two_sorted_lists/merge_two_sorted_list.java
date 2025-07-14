@@ -1,19 +1,18 @@
 /**
  * Repository version for Problem 21: Merge Two Sorted Lists
  *
- * This file compiles under your Java CI and includes:
- *  - ListNode definition
- *  - MergeTwoSortedList class with mergeTwoLists method
- *  - Helper methods buildList, listToList
- *  - main() for quick demonstration
+ * This file compiles under your Java CI (java.yml).
+ * The class is package-private so the filename (merge_two_sorted_list.java)
+ * does not have to match the class name.
  */
-public class MergeTwoSortedList {
 
-    /** Definition for singly-linked list. */
-    public static class ListNode {
-        public int val;
-        public ListNode next;
-        public ListNode(int val) { this.val = val; }
+class MergeTwoSortedList {
+
+    /** Definition for singly-linked list node. */
+    static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int val) { this.val = val; }
     }
 
     /**
@@ -39,33 +38,33 @@ public class MergeTwoSortedList {
             tail = tail.next;
         }
 
-        // Attach the remainder
+        // Attach whichever list remains
         tail.next = (list1 != null) ? list1 : list2;
         return dummy.next;
     }
 
-    /** Build a linked list from an int array, return its head. */
-    public static ListNode buildList(int[] values) {
+    /** Helper: build a linked list from an int array. */
+    public static ListNode buildList(int[] vals) {
         ListNode dummy = new ListNode(0);
         ListNode tail = dummy;
-        for (int v : values) {
+        for (int v : vals) {
             tail.next = new ListNode(v);
             tail = tail.next;
         }
         return dummy.next;
     }
 
-    /** Convert a linked list to a java.util.List<Integer> for easy printing. */
+    /** Helper: convert a linked list to a List<Integer> for easy output. */
     public static java.util.List<Integer> listToList(ListNode head) {
-        java.util.List<Integer> result = new java.util.ArrayList<>();
+        java.util.List<Integer> out = new java.util.ArrayList<>();
         while (head != null) {
-            result.add(head.val);
+            out.add(head.val);
             head = head.next;
         }
-        return result;
+        return out;
     }
 
-    /** Demo in main(): runs the examples and prints the merged lists. */
+    /** Demo main() to exercise the code. */
     public static void main(String[] args) {
         int[][] a = {{}, {}, {1, 2, 4}};
         int[][] b = {{}, {0}, {1, 3, 4}};
