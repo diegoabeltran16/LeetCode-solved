@@ -2,16 +2,13 @@
 """
 Merge Two Sorted Lists (LeetCode #21)
 
-Given the heads of two sorted linked lists `l1` and `l2`, merge them into a single
-sorted linked list by splicing together the nodes of the input lists.
-This reuses existing nodes (O(1) extra space) and runs in O(n + m) time.
-
-Example:
-    $ python merge_two_sorted_lists.py
-    merge_two_lists([], []) -> []
-    merge_two_lists([], [0]) -> [0]
-    merge_two_lists([1, 2, 4], [1, 3, 4]) -> [1, 1, 2, 3, 4, 4]
+Supports two modes:
+1. **Demo mode** (no stdin data): runs hard-coded examples.
+2. **CLI mode** (JSON on stdin): reads `[list1, list2]` and emits merged list as JSON.
 """
+
+import sys
+import json
 
 
 class ListNode(object):
@@ -21,25 +18,15 @@ class ListNode(object):
         self.next = next
 
     def __repr__(self):
-        # Represent the list from this node onward for debugging
         return f"{self.val}->{repr(self.next)}" if self.next else f"{self.val}"
 
 
 def merge_two_lists(l1, l2):
     """
     Merge two sorted linked lists in-place by reusing nodes.
-
-    Args:
-        l1 (ListNode): Head of the first sorted linked list.
-        l2 (ListNode): Head of the second sorted linked list.
-
-    Returns:
-        ListNode: Head of the merged sorted linked list.
     """
-    dummy = ListNode(-1)  # Sentinel node to ease edge cases
-    tail = dummy          # Pointer to build the merged list
-
-    # Merge nodes until one list is exhausted
+    dummy = ListNode(-1)
+    tail = dummy
     while l1 and l2:
         if l1.val < l2.val:
             tail.next = l1
@@ -48,22 +35,12 @@ def merge_two_lists(l1, l2):
             tail.next = l2
             l2 = l2.next
         tail = tail.next
-
-    # Attach the remaining non-empty list (if any)
     tail.next = l1 or l2
     return dummy.next
 
 
 def build_list(values):
-    """
-    Build a linked list from a Python list of integer values.
-
-    Args:
-        values (List[int]): List of node values.
-
-    Returns:
-        ListNode: Head of the constructed linked list.
-    """
+    """Build a linked list from a Python list of ints."""
     dummy = ListNode(0)
     curr = dummy
     for v in values:
@@ -73,15 +50,7 @@ def build_list(values):
 
 
 def list_to_pylist(head):
-    """
-    Convert a linked list back into a Python list of integer values.
-
-    Args:
-        head (ListNode): Head of the linked list.
-
-    Returns:
-        List[int]: List of node values for easy comparison.
-    """
+    """Convert a linked list back into a Python list of ints."""
     result = []
     curr = head
     while curr:
@@ -90,14 +59,36 @@ def list_to_pylist(head):
     return result
 
 
+def run_cli_mode():
+    """
+    Read JSON [list1, list2] from stdin, run merge, print JSON result, exit.
+    """
+    data = sys.stdin.read()
+    try:
+        xs, ys = json.loads(data)
+    except Exception:
+        # Malformed or empty stdin: fall back to demo
+        return False
+
+    l1 = build_list(xs)
+    l2 = build_list(ys)
+    merged = merge_two_lists(l1, l2)
+    out = list_to_pylist(merged)
+    sys.stdout.write(json.dumps(out))
+    return True
+
+
 if __name__ == "__main__":
-    # Example usage and simple tests
+    # If stdin contains JSON, handle it and exit
+    if run_cli_mode():
+        sys.exit(0)
+
+    # Otherwise: original demo/tests
     test_cases = [
         ([], []),
         ([], [0]),
         ([1, 2, 4], [1, 3, 4]),
     ]
-
     for xs, ys in test_cases:
         l1 = build_list(xs)
         l2 = build_list(ys)
