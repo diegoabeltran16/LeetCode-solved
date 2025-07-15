@@ -52,6 +52,9 @@ func listToSlice(head *ListNode) []int {
 	for p := head; p != nil; p = p.Next {
 		out = append(out, p.Val)
 	}
+	if out == nil {
+		return []int{} // Return empty slice explicitly, not nil
+	}
 	return out
 }
 
