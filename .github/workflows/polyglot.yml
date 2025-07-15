@@ -52,4 +52,4 @@ jobs:
 
     - name: Run Polyglot Test Orchestrator
       run: |
-        python3 polyglot_runner.py
+        python3 problems/polyglot_runner.py
