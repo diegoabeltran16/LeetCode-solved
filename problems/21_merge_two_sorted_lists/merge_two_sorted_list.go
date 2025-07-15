@@ -1,18 +1,19 @@
+// problems/21_merge_two_sorted_lists/merge_two_sorted_list.go
 package main
 
 import (
-	"bufio"
 	"encoding/json"
-	"fmt"
+	"io"
 	"os"
-	"strings"
 )
 
+// ListNode defines a node in a singly-linked list.
 type ListNode struct {
 	Val  int
 	Next *ListNode
 }
 
+// mergeTwoLists merges two sorted linked lists in-place.
 func mergeTwoLists(l1, l2 *ListNode) *ListNode {
 	dummy := &ListNode{}
 	tail := dummy
@@ -34,6 +35,7 @@ func mergeTwoLists(l1, l2 *ListNode) *ListNode {
 	return dummy.Next
 }
 
+// buildList constructs a linked list from a slice of ints.
 func buildList(vals []int) *ListNode {
 	dummy := &ListNode{}
 	curr := dummy
@@ -44,41 +46,36 @@ func buildList(vals []int) *ListNode {
 	return dummy.Next
 }
 
+// listToSlice converts a linked list to a slice of ints.
 func listToSlice(head *ListNode) []int {
 	var out []int
-	for head != nil {
-		out = append(out, head.Val)
-		head = head.Next
+	for p := head; p != nil; p = p.Next {
+		out = append(out, p.Val)
 	}
 	return out
 }
 
 func main() {
-	scanner := bufio.NewScanner(os.Stdin)
-
-	// Read list1
-	if !scanner.Scan() {
-		fmt.Println("[]")
-		return
+	// Read entire stdin as JSON [[...], [...]]
+	data, err := io.ReadAll(os.Stdin)
+	if err != nil {
+		os.Exit(1)
 	}
-	line1 := scanner.Text()
 
-	// Read list2
-	if !scanner.Scan() {
-		fmt.Println("[]")
-		return
+	var lists [][]int
+	if err := json.Unmarshal(data, &lists); err != nil {
+		os.Exit(1)
 	}
-	line2 := scanner.Text()
 
-	var list1, list2 []int
-	_ = json.Unmarshal([]byte(strings.ReplaceAll(line1, "'", "\"")), &list1)
-	_ = json.Unmarshal([]byte(strings.ReplaceAll(line2, "'", "\"")), &list2)
+	l1Vals := lists[0]
+	l2Vals := lists[1]
 
-	head1 := buildList(list1)
-	head2 := buildList(list2)
-
-	merged := mergeTwoLists(head1, head2)
+	// Build linked lists, merge, then print result as JSON
+	l1 := buildList(l1Vals)
+	l2 := buildList(l2Vals)
+	merged := mergeTwoLists(l1, l2)
 	result := listToSlice(merged)
 
-	json.NewEncoder(os.Stdout).Encode(result)
+	enc := json.NewEncoder(os.Stdout)
+	enc.Encode(result)
 }
