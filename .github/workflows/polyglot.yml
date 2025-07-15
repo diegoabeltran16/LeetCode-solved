@@ -1,0 +1,55 @@
+# .github/workflows/polyglot.yml
+name: Polyglot Problem Orchestration
+
+on:
+  push:
+    # Trigger whenever any problem changes or this workflow itself is edited
+    paths:
+      - 'problems/**'
+      - '.github/workflows/polyglot.yml'
+  workflow_dispatch:
+
+jobs:
+  polyglot-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.20'
+
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '7.0.x'
+
+    - name: Install C/C++ toolchain & Rust
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential clang cmake
+        curl https://sh.rustup.rs -sSf | sh -s -- -y
+        source $HOME/.cargo/env
+
+    - name: Run Polyglot Test Orchestrator
+      run: |
+        python3 polyglot_runner.py
