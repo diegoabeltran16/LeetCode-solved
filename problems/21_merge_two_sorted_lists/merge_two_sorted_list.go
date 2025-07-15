@@ -56,23 +56,24 @@ func listToSlice(head *ListNode) []int {
 }
 
 func main() {
-	// Read entire stdin as JSON [[...], [...]]
+	// Read the entire JSON payload from stdin
 	data, err := io.ReadAll(os.Stdin)
 	if err != nil {
 		os.Exit(1)
 	}
 
+	// Expecting a JSON array: [[...], [...]]
 	var lists [][]int
 	if err := json.Unmarshal(data, &lists); err != nil {
+		// Invalid JSON → exit (or you could fallback to demos)
 		os.Exit(1)
 	}
 
-	l1Vals := lists[0]
-	l2Vals := lists[1]
+	// lists[0] is l1, lists[1] is l2
+	l1 := buildList(lists[0])
+	l2 := buildList(lists[1])
 
-	// Build linked lists, merge, then print result as JSON
-	l1 := buildList(l1Vals)
-	l2 := buildList(l2Vals)
+	// Merge and emit JSON result
 	merged := mergeTwoLists(l1, l2)
 	result := listToSlice(merged)
 
