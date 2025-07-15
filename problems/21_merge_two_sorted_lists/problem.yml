@@ -1,0 +1,14 @@
+# problems/21_merge_two_sorted_lists/problem.yml
+
+id: 21
+title: Merge Two Sorted Lists
+test_cases_file: test_cases.json
+languages:
+  - python
+  - go
+  - rust
+  - java
+  - javascript
+  - c
+  - cpp
+  - csharp
