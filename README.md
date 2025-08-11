@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/github/license/diegoabeltran16/LeetCode-solved.svg)
 ![Last Commit](https://img.shields.io/github/last-commit/diegoabeltran16/LeetCode-solved.svg)
 ![Repo Size](https://img.shields.io/github/repo-size/diegoabeltran16/LeetCode-solved.svg)
-![LeetCode Problems Solved](https://img.shields.io/badge/LeetCode-3_problems_solved-orange)
+![LeetCode Problems Solved](https://img.shields.io/badge/LeetCode-4_problems_solved-orange)
 
 This repository contains my solutions to LeetCode problems implemented in **multiple programming languages**, including the ones in:
 
@@ -27,8 +27,9 @@ Each push or pull request triggers **automated build and syntax checks** for the
 
 ## **Why this repository?**
 
-✅ Compare implementation patterns across languages  
-✅ Build instincts for performance, syntax, and idiomatic code  
-✅ Practice systematic CI/CD for polyglot projects  
+✅ Comparing implementation patterns across languages  
+✅ Building instincts for performance, syntax, and idiomatic code  
+✅ Practicing systematic CI/CD for polyglot projects  
+✅ Learning about logic in different programming scenarios 
 
 Learning in the IA era is not memorizing syntax, but understanding structure across forms
