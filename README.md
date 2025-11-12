@@ -2,7 +2,6 @@
 
 ![License](https://img.shields.io/github/license/diegoabeltran16/LeetCode-solved.svg)
 ![Last Commit](https://img.shields.io/github/last-commit/diegoabeltran16/LeetCode-solved.svg)
-![Repo Size](https://img.shields.io/github/repo-size/diegoabeltran16/LeetCode-solved.svg)
 ![LeetCode Problems Solved](https://img.shields.io/badge/LeetCode-4_problems_solved-orange)
 
 This repository contains my solutions to LeetCode problems implemented in **multiple programming languages**, including the ones in:
@@ -21,7 +20,7 @@ Each push or pull request triggers **automated build and syntax checks** for the
 |**C++**| ![C++ Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/cpp.yml/badge.svg) |
 |**Python**| ![Python Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/python.yml/badge.svg) |
 |**JavaScript**| ![JavaScript Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/javascript.yml/badge.svg) |
-
+|**TypeScript**| ![TypeScript Build](https://github.com/diegoabeltran16/LeetCode-solved/actions/workflows/typescript.yml/badge.svg) |
 
 
 
