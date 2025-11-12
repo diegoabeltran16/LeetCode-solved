@@ -4,7 +4,7 @@
 ![Last Commit](https://img.shields.io/github/last-commit/diegoabeltran16/LeetCode-solved.svg)
 ![LeetCode Problems Solved](https://img.shields.io/badge/LeetCode-4_problems_solved-orange)
 
-This repository contains my solutions to LeetCode problems implemented in **multiple programming languages**, including the ones in:
+This repository contains solutions to LeetCode problems implemented in **multiple programming languages**, including the ones in:
 
 ## 🚀 **Automated CI Workflows**
 

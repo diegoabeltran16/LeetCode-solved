@@ -1,0 +1,41 @@
+# Editor-specific files
+.vscode/
+.idea/
+
+# Build artifacts
+*.o
+*.exe
+*.class
+*.jar
+*.dll
+*.pdb
+
+# Dependency directories
+node_modules/
+target/
+bin/
+obj/
+
+# Environment files
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Rust build artifacts
+target/
+
+# Go build artifacts
+*.out
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+
+# Yarn/Package lock files (optional)
+yarn.lock
+package-lock.json
