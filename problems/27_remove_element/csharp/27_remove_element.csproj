@@ -2,12 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Include="remove_element_solution.cs" />
-    <Compile Include="remove_element_problem.cs" />
-  </ItemGroup>
 
 </Project>

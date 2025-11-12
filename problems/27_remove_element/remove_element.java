@@ -10,7 +10,7 @@ import java.util.Arrays;
 //     removeElement([3, 2, 2, 3], 3) -> k = 2, nums = [2, 2]
 //     removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2) -> k = 5, nums = [0, 1, 3, 0, 4]
 
-public class RemoveElement {
+class Solution {
     public int removeElement(int[] nums, int val) {
         int k = 0; // Pointer for the next position of non-val elements
         for (int i = 0; i < nums.length; i++) {
@@ -23,7 +23,7 @@ public class RemoveElement {
     }
 
     public static void main(String[] args) {
-        RemoveElement solution = new RemoveElement();
+        Solution solution = new Solution();
 
         // Example usage and simple tests
         int[] nums1 = {3, 2, 2, 3};
