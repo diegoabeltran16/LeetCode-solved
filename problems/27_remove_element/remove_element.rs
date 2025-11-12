@@ -7,7 +7,7 @@
 //     $ cargo run
 //     remove_element(vec![3, 2, 2, 3], 3) -> k = 2, nums = [2, 2]
 //     remove_element(vec![0, 1, 2, 2, 3, 0, 4, 2], 2) -> k = 5, nums = [0, 1, 3, 0, 4]
-//
+
 fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
     let mut k = 0; // Pointer for the next position of non-val elements
     for i in 0..nums.len() {
@@ -34,7 +34,7 @@ fn main() {
             original_nums,
             val,
             k,
-            &nums[..k]
+            &nums[..k as usize] // Cast `k` to `usize` for slicing
         );
     }
 }
