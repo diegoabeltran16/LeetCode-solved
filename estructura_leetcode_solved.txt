@@ -1,0 +1,323 @@
+├── .github
+│   ├── dependabot.yml
+│   └── workflows
+│       ├── c.yml
+│       ├── cpp.yml
+│       ├── csharp.yml
+│       ├── go.yml
+│       ├── java.yml
+│       ├── javascript.yml
+│       ├── python.yml
+│       ├── rust.yml
+│       └── typescript.yml
+├── .gitignore
+├── configs
+│   ├── csharp
+│   │   └── LeetCode-solved.sln
+│   ├── go
+│   │   └── go.mod
+│   └── javascript
+│       ├── node_modules
+│       │   ├── @types
+│       │   │   └── node
+│       │   │       ├── assert
+│       │   │       │   └── strict.d.ts
+│       │   │       ├── assert.d.ts
+│       │   │       ├── async_hooks.d.ts
+│       │   │       ├── buffer.buffer.d.ts
+│       │   │       ├── buffer.d.ts
+│       │   │       ├── child_process.d.ts
+│       │   │       ├── cluster.d.ts
+│       │   │       ├── compatibility
+│       │   │       │   └── iterators.d.ts
+│       │   │       ├── console.d.ts
+│       │   │       ├── constants.d.ts
+│       │   │       ├── crypto.d.ts
+│       │   │       ├── dgram.d.ts
+│       │   │       ├── diagnostics_channel.d.ts
+│       │   │       ├── dns
+│       │   │       │   └── promises.d.ts
+│       │   │       ├── dns.d.ts
+│       │   │       ├── domain.d.ts
+│       │   │       ├── events.d.ts
+│       │   │       ├── fs
+│       │   │       │   └── promises.d.ts
+│       │   │       ├── fs.d.ts
+│       │   │       ├── globals.d.ts
+│       │   │       ├── globals.typedarray.d.ts
+│       │   │       ├── http.d.ts
+│       │   │       ├── http2.d.ts
+│       │   │       ├── https.d.ts
+│       │   │       ├── index.d.ts
+│       │   │       ├── inspector.d.ts
+│       │   │       ├── inspector.generated.d.ts
+│       │   │       ├── LICENSE
+│       │   │       ├── module.d.ts
+│       │   │       ├── net.d.ts
+│       │   │       ├── os.d.ts
+│       │   │       ├── package.json
+│       │   │       ├── path.d.ts
+│       │   │       ├── perf_hooks.d.ts
+│       │   │       ├── process.d.ts
+│       │   │       ├── punycode.d.ts
+│       │   │       ├── querystring.d.ts
+│       │   │       ├── readline
+│       │   │       │   └── promises.d.ts
+│       │   │       ├── readline.d.ts
+│       │   │       ├── README.md
+│       │   │       ├── repl.d.ts
+│       │   │       ├── sea.d.ts
+│       │   │       ├── sqlite.d.ts
+│       │   │       ├── stream
+│       │   │       │   ├── consumers.d.ts
+│       │   │       │   ├── promises.d.ts
+│       │   │       │   └── web.d.ts
+│       │   │       ├── stream.d.ts
+│       │   │       ├── string_decoder.d.ts
+│       │   │       ├── test.d.ts
+│       │   │       ├── timers
+│       │   │       │   └── promises.d.ts
+│       │   │       ├── timers.d.ts
+│       │   │       ├── tls.d.ts
+│       │   │       ├── trace_events.d.ts
+│       │   │       ├── ts5.6
+│       │   │       │   ├── buffer.buffer.d.ts
+│       │   │       │   ├── compatibility
+│       │   │       │   │   └── float16array.d.ts
+│       │   │       │   ├── globals.typedarray.d.ts
+│       │   │       │   └── index.d.ts
+│       │   │       ├── ts5.7
+│       │   │       │   ├── compatibility
+│       │   │       │   │   └── float16array.d.ts
+│       │   │       │   └── index.d.ts
+│       │   │       ├── tty.d.ts
+│       │   │       ├── url.d.ts
+│       │   │       ├── util.d.ts
+│       │   │       ├── v8.d.ts
+│       │   │       ├── vm.d.ts
+│       │   │       ├── wasi.d.ts
+│       │   │       ├── web-globals
+│       │   │       │   ├── abortcontroller.d.ts
+│       │   │       │   ├── crypto.d.ts
+│       │   │       │   ├── domexception.d.ts
+│       │   │       │   ├── events.d.ts
+│       │   │       │   ├── fetch.d.ts
+│       │   │       │   ├── navigator.d.ts
+│       │   │       │   ├── storage.d.ts
+│       │   │       │   └── streams.d.ts
+│       │   │       ├── worker_threads.d.ts
+│       │   │       └── zlib.d.ts
+│       │   └── undici-types
+│       │       ├── agent.d.ts
+│       │       ├── api.d.ts
+│       │       ├── balanced-pool.d.ts
+│       │       ├── cache-interceptor.d.ts
+│       │       ├── cache.d.ts
+│       │       ├── client-stats.d.ts
+│       │       ├── client.d.ts
+│       │       ├── connector.d.ts
+│       │       ├── content-type.d.ts
+│       │       ├── cookies.d.ts
+│       │       ├── diagnostics-channel.d.ts
+│       │       ├── dispatcher.d.ts
+│       │       ├── env-http-proxy-agent.d.ts
+│       │       ├── errors.d.ts
+│       │       ├── eventsource.d.ts
+│       │       ├── fetch.d.ts
+│       │       ├── formdata.d.ts
+│       │       ├── global-dispatcher.d.ts
+│       │       ├── global-origin.d.ts
+│       │       ├── h2c-client.d.ts
+│       │       ├── handlers.d.ts
+│       │       ├── header.d.ts
+│       │       ├── index.d.ts
+│       │       ├── interceptors.d.ts
+│       │       ├── LICENSE
+│       │       ├── mock-agent.d.ts
+│       │       ├── mock-call-history.d.ts
+│       │       ├── mock-client.d.ts
+│       │       ├── mock-errors.d.ts
+│       │       ├── mock-interceptor.d.ts
+│       │       ├── mock-pool.d.ts
+│       │       ├── package.json
+│       │       ├── patch.d.ts
+│       │       ├── pool-stats.d.ts
+│       │       ├── pool.d.ts
+│       │       ├── proxy-agent.d.ts
+│       │       ├── readable.d.ts
+│       │       ├── README.md
+│       │       ├── retry-agent.d.ts
+│       │       ├── retry-handler.d.ts
+│       │       ├── snapshot-agent.d.ts
+│       │       ├── util.d.ts
+│       │       ├── utility.d.ts
+│       │       ├── webidl.d.ts
+│       │       └── websocket.d.ts
+│       ├── package-lock.json
+│       └── package.json
+├── estructura_leetcode_solved.txt
+├── LICENSE
+├── problems
+│   ├── 13_roman_to_Integer
+│   │   ├── 13_roman_to_integer.md
+│   │   ├── csharp
+│   │   │   ├── 13_roman_to_Integer_cs.csproj
+│   │   │   ├── bin
+│   │   │   │   └── Debug
+│   │   │   │       └── net7.0
+│   │   │   ├── obj
+│   │   │   │   └── Debug
+│   │   │   │       └── net7.0
+│   │   │   │           ├── 13_roman_to_Integer_cs.AssemblyInfo.cs
+│   │   │   │           ├── 13_roman_to_Integer_cs.AssemblyInfoInputs.cache
+│   │   │   │           ├── 13_roman_to_Integer_cs.GeneratedMSBuildEditorConfig.editorconfig
+│   │   │   │           ├── 13_roman_to_Integer_cs.GlobalUsings.g.cs
+│   │   │   │           ├── ref
+│   │   │   │           └── refint
+│   │   │   ├── roman_to_integer_problem.cs
+│   │   │   └── roman_to_integer_solution.cs
+│   │   ├── roman_to_integer_C
+│   │   │   └── roman_to_integer.c
+│   │   ├── roman_to_integer_C++
+│   │   │   └── roman_to_integer.cpp
+│   │   ├── roman_to_integer_GO
+│   │   │   └── roman_to_integer.go
+│   │   ├── roman_to_integer_JAVA
+│   │   │   └── roman_to_integer.java
+│   │   ├── roman_to_integer_JS
+│   │   │   └── roman_to_integer.js
+│   │   ├── roman_to_integer_PYTHON
+│   │   │   └── roman_to_integer.py
+│   │   └── roman_to_integer_RUST
+│   │       └── roman_to_integer.rs
+│   ├── 14_Longest_Common_Prefix
+│   │   ├── 14_Longest_Common_Prefix.md
+│   │   ├── csharp
+│   │   │   ├── 14_longest_common_prefix_cs.csproj
+│   │   │   ├── bin
+│   │   │   │   └── Debug
+│   │   │   │       └── net7.0
+│   │   │   ├── longest_common_prefix_problem.cs
+│   │   │   ├── longest_common_prefix_solution.cs
+│   │   │   └── obj
+│   │   │       └── Debug
+│   │   │           └── net7.0
+│   │   │               ├── 14_longest_common_prefix_cs.AssemblyInfo.cs
+│   │   │               ├── 14_longest_common_prefix_cs.AssemblyInfoInputs.cache
+│   │   │               ├── 14_longest_common_prefix_cs.GeneratedMSBuildEditorConfig.editorconfig
+│   │   │               ├── 14_longest_common_prefix_cs.GlobalUsings.g.cs
+│   │   │               ├── ref
+│   │   │               └── refint
+│   │   ├── longest_common_prefix_C
+│   │   │   └── longest_common_prefix.c
+│   │   ├── longest_common_prefix_C++
+│   │   │   └── longest_common_prefix.cpp
+│   │   ├── longest_common_prefix_GO
+│   │   │   └── longest_common_prefix.go
+│   │   ├── longest_common_prefix_JAVA
+│   │   │   └── LongestCommonPrefix.java
+│   │   ├── longest_common_prefix_JS
+│   │   │   └── longest_common_prefix.js
+│   │   ├── longest_common_prefix_PYTHON
+│   │   │   └── longest_common_prefix.py
+│   │   └── longest_common_prefix_RUST
+│   │       └── longest_common_prefix.rs
+│   ├── 20_valid_parentheses
+│   │   ├── 20_valid_parentheses.md
+│   │   ├── csharp
+│   │   │   ├── 20_valid_parentheses_cs.csproj
+│   │   │   ├── bin
+│   │   │   │   └── Debug
+│   │   │   │       └── net7.0
+│   │   │   ├── obj
+│   │   │   │   └── Debug
+│   │   │   │       └── net7.0
+│   │   │   │           ├── 20_valid_parentheses_cs.AssemblyInfo.cs
+│   │   │   │           ├── 20_valid_parentheses_cs.AssemblyInfoInputs.cache
+│   │   │   │           ├── 20_valid_parentheses_cs.GeneratedMSBuildEditorConfig.editorconfig
+│   │   │   │           ├── 20_valid_parentheses_cs.GlobalUsings.g.cs
+│   │   │   │           ├── ref
+│   │   │   │           └── refint
+│   │   │   ├── valid_parentheses_problem.cs
+│   │   │   └── valid_parentheses_solution.cs
+│   │   ├── valid_parentheses_C
+│   │   │   └── valid_parentheses.c
+│   │   ├── valid_parentheses_C++
+│   │   │   └── valid_parentheses.cpp
+│   │   ├── valid_parentheses_GO
+│   │   │   └── valid_parentheses.go
+│   │   ├── valid_parentheses_JAVA
+│   │   │   └── valid_parentheses.java
+│   │   ├── valid_parentheses_PYTHON
+│   │   │   └── valid_parentheses.py
+│   │   ├── valid_parentheses_RUST
+│   │   │   └── valid_parentheses.rs
+│   │   └── valid_prentheses_JS
+│   │       └── valid_parentheses.js
+│   ├── 21_merge_two_sorted_lists
+│   │   ├── 21_merge_two_sorted_list.md
+│   │   ├── csharp
+│   │   │   ├── 21_merge_two_sorted_list_cs.csproj
+│   │   │   ├── bin
+│   │   │   │   └── Debug
+│   │   │   │       └── net7.0
+│   │   │   ├── merge_two_sorted_list_problem.cs
+│   │   │   ├── merge_two_sorted_list_solution.cs
+│   │   │   └── obj
+│   │   │       └── Debug
+│   │   │           └── net7.0
+│   │   │               ├── 21_merge_two_sorted_list_cs.AssemblyInfo.cs
+│   │   │               ├── 21_merge_two_sorted_list_cs.AssemblyInfoInputs.cache
+│   │   │               ├── 21_merge_two_sorted_list_cs.GeneratedMSBuildEditorConfig.editorconfig
+│   │   │               ├── 21_merge_two_sorted_list_cs.GlobalUsings.g.cs
+│   │   │               ├── ref
+│   │   │               └── refint
+│   │   ├── merge_two_sorted_list_C
+│   │   │   └── merge_two_sorted_list.c
+│   │   ├── merge_two_sorted_list_C++
+│   │   │   └── merge_two_sorted_list.cpp
+│   │   ├── merge_two_sorted_list_GO
+│   │   │   └── merge_two_sorted_list.go
+│   │   ├── merge_two_sorted_list_JAVA
+│   │   │   └── merge_two_sorted_list.java
+│   │   ├── merge_two_sorted_list_JS
+│   │   │   └── merge_two_sorted_list.js
+│   │   ├── merge_two_sorted_list_PYTHON
+│   │   │   └── merge_two_sorted_lists.py
+│   │   └── merge_two_sorted_list_RUST
+│   │       └── merge_two_sorted_list.rs
+│   └── 27_remove_element
+│       ├── 27_remove_element.md
+│       ├── csharp
+│       │   ├── 27_remove_element.csproj
+│       │   ├── remove_element_problem.cs
+│       │   └── remove_element_solution.cs
+│       ├── remove_element_C
+│       │   └── remove_element.c
+│       ├── remove_element_C++
+│       │   └── remove_element.cpp
+│       ├── remove_element_GO
+│       │   └── remove_element.go
+│       ├── remove_element_JAVA
+│       │   └── remove_element.java
+│       ├── remove_element_JS
+│       │   └── remove_element.js
+│       ├── remove_element_PYTHON
+│       │   └── remove_element.py
+│       ├── remove_element_RUST
+│       │   └── remove_element.rs
+│       └── remove_element_TS
+│           └── remove_element.ts
+├── README.md
+└── rep_export_Windows
+    ├── __init__.py
+    ├── __pycache__
+    ├── cli_utils_Windows.py
+    ├── generate_structure_windows.py
+    ├── scripts_windows
+    │   └── export_structure_wrapper_windows.py
+    ├── tag_mapper_windows.py
+    ├── tiddler_exporter_windows.py
+    ├── tiddler_tag_doc_windows
+    │   └── (Estudiar)(Repository Export).jsonl
+    └── tiddlers-export
