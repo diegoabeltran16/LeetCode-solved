@@ -1,0 +1,36 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "../../problems", // Set the root directory for TypeScript files
+    "outDir": "./dist", // Set the output directory for compiled JavaScript files
+
+    // Environment Settings
+    "module": "commonjs", // Use CommonJS module system for Node.js compatibility
+    "target": "es6", // Target ES6 for compatibility with modern JavaScript
+    "types": ["node"], // Include Node.js type definitions
+    "lib": ["es6"], // Include ES6 library definitions
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+
+    
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Style Options
+    "strict": true,
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": false, // Disable verbatimModuleSyntax to allow CommonJS exports
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  },
+  "include": ["../../problems/**/*.ts"], // Include all TypeScript files in the problems directory
+  "exclude": ["node_modules", "**/*.js"] // Exclude node_modules from compilation
+}

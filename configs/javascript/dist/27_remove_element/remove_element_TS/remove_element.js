@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+"use strict";
 /**
  * Remove Element (LeetCode #27)
  *
@@ -6,11 +7,12 @@
  * The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
  *
  * Example:
- *     $ node remove_element.js
+ *     $ node remove_element.ts
  *     removeElement([3, 2, 2, 3], 3) -> k = 2, nums = [2, 2]
  *     removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2) -> k = 5, nums = [0, 1, 3, 0, 4]
  */
-
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.removeElement = removeElement;
 /**
  * @param {number[]} nums
  * @param {number} val
@@ -26,19 +28,17 @@ function removeElement(nums, val) {
     }
     return k;
 }
-
+// Check if the script is being run directly
 if (require.main === module) {
     // Example usage and simple tests
     const testCases = [
         { nums: [3, 2, 2, 3], val: 3 },
         { nums: [0, 1, 2, 2, 3, 0, 4, 2], val: 2 },
     ];
-
     for (const { nums, val } of testCases) {
         const originalNums = [...nums];
         const k = removeElement(nums, val);
-        console.log(
-            `removeElement(${JSON.stringify(originalNums)}, ${val}) -> k = ${k}, nums = ${JSON.stringify(nums.slice(0, k))}`
-        );
+        console.log(`removeElement(${JSON.stringify(originalNums)}, ${val}) -> k = ${k}, nums = ${JSON.stringify(nums.slice(0, k))}`);
     }
 }
+//# sourceMappingURL=remove_element.js.map

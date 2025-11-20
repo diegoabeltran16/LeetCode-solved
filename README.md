@@ -31,4 +31,4 @@ Each push or pull request triggers **automated build and syntax checks** for the
 ✅ Practicing systematic CI/CD for polyglot projects  
 ✅ Learning about logic in different programming scenarios 
 
-Learning in the IA era is not memorizing syntax, but understanding structure across forms
+Learning in the IA era is not memorizing syntax, but understanding math behind and structure across forms

@@ -20,14 +20,17 @@ export function removeElement(nums: number[], val: number): number {
     let k = 0; // Pointer for the next position of non-val elements
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] !== val) {
-            nums[k] = nums[i];
+            nums[k] = nums[i]!;
             k++;
         }
     }
     return k;
 }
 
-if (require.main === module) {
+// Check if the script is being run directly
+import { mainModule } from "process";
+
+if (mainModule === module) {
     // Example usage and simple tests
     const testCases = [
         { nums: [3, 2, 2, 3], val: 3 },
@@ -42,3 +45,8 @@ if (require.main === module) {
         );
     }
 }
+
+/**
+ * @compilerOptions
+ * @esModuleInterop
+ */
