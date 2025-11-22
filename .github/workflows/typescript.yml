@@ -24,15 +24,15 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install TypeScript
-      run: |
-        npm install -g typescript
+    - name: Install dependencies
+      run: npm install
 
-    - name: Compile and run all TypeScript solution files
+    - name: Compile TypeScript files
+      run: npx tsc
+
+    - name: Run compiled JavaScript files
       run: |
-        find problems -name "*.ts" | while read file; do
-          echo "Compiling $file"
-          tsc "$file" || exit 1
+        find dist -name "*.js" | while read file; do
           echo "Running $file"
-          node "${file%.ts}.js" || exit 1
+          node "$file" || exit 1
         done
