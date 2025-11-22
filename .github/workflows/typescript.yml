@@ -25,14 +25,14 @@ jobs:
         node-version: '18'
 
     - name: Install dependencies
-      run: npm install --prefix ./configs/javascript
+      run: npm install
 
     - name: Compile TypeScript files
-      run: npx --prefix ./configs/javascript tsc
+      run: npx tsc
 
     - name: Run compiled JavaScript files
       run: |
-        find configs/javascript/dist -name "*.js" | while read file; do
+        find dist -name "*.js" | while read file; do
           echo "Running $file"
           node "$file" || exit 1
         done
