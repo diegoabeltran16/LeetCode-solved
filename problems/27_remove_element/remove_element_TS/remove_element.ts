@@ -28,9 +28,7 @@ export function removeElement(nums: number[], val: number): number {
 }
 
 // Check if the script is being run directly
-import { mainModule } from "process";
-
-if (mainModule === module) {
+if (require.main === module) {
     // Example usage and simple tests
     const testCases = [
         { nums: [3, 2, 2, 3], val: 3 },
@@ -45,8 +43,3 @@ if (mainModule === module) {
         );
     }
 }
-
-/**
- * @compilerOptions
- * @esModuleInterop
- */

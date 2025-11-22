@@ -32,5 +32,8 @@
     "skipLibCheck": true
   },
   "include": ["../../problems/**/*.ts"], // Include all TypeScript files in the problems directory
-  "exclude": ["node_modules", "**/*.js"] // Exclude node_modules from compilation
+  "exclude": ["node_modules", "**/*.js"], // Exclude node_modules from compilation
+  "compilerOptions": {
+    "esModuleInterop": true
+  }
 }
