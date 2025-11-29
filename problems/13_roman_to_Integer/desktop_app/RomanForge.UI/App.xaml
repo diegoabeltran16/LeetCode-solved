@@ -1,0 +1,15 @@
+<Application x:Class="RomanForge.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Color Palette inspired by the Hero's Journey -->
+            <SolidColorBrush x:Key="PrimaryBrush" Color="#2C3E50"/>
+            <SolidColorBrush x:Key="AccentBrush" Color="#3498DB"/>
+            <SolidColorBrush x:Key="SuccessBrush" Color="#27AE60"/>
+            <SolidColorBrush x:Key="ErrorBrush" Color="#E74C3C"/>
+            <SolidColorBrush x:Key="BackgroundBrush" Color="#ECF0F1"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

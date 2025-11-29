@@ -9,6 +9,18 @@
 *.jar
 *.dll
 *.pdb
+*.so
+*.dylib
+
+# .NET build artifacts
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.vsidx
+*.vspscc
+.vs/
 
 # Dependency directories
 node_modules/
@@ -25,6 +37,7 @@ __pycache__/
 
 # Rust build artifacts
 target/
+Cargo.lock
 
 # Go build artifacts
 *.out
@@ -35,14 +48,28 @@ target/
 # Temporary files
 *.tmp
 *.swp
+*~
+
+# WPF/XAML designer files
+*.g.cs
+*.g.i.cs
 
 # Yarn/Package lock files (optional)
 yarn.lock
 package-lock.json
 
+# Desktop app specific
+# Keep source code but ignore build outputs
+**/desktop_app/roman_engine/target/
+**/desktop_app/RomanForge.UI/bin/
+**/desktop_app/RomanForge.UI/obj/
+**/desktop_app/.vs/
+*.user
+
+# Export utilities
 rep_export_Windows/
 
-problems\the_hero_power.md
+# Hero power document (private)
+problems/the_hero_power.md
 
-
-
+problems\the_hero_power.txt
