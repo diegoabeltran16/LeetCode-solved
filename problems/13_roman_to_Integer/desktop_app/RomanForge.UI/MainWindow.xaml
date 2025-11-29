@@ -1,0 +1,115 @@
+<Window x:Class="RomanForge.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RomanForge - Three Cities Converter" 
+        Height="500" Width="600"
+        Background="#ECF0F1"
+        ResizeMode="CanMinimize">
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" 
+                Background="#2C3E50" 
+                CornerRadius="5" 
+                Padding="15">
+            <StackPanel>
+                <TextBlock Text="🏛️ RomanForge" 
+                           FontSize="24" 
+                           FontWeight="Bold" 
+                           Foreground="White"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="A Three-City Collaboration" 
+                           FontSize="12" 
+                           Foreground="#BDC3C7"
+                           HorizontalAlignment="Center"
+                           Margin="0,5,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Roman to Integer Section -->
+        <GroupBox Grid.Row="2" Header="Roman → Integer" Padding="10">
+            <StackPanel>
+                <Label Content="Enter Roman Numeral:" FontWeight="SemiBold"/>
+                <TextBox x:Name="RomanInput" 
+                         Text="{Binding RomanInput, UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="16" 
+                         Padding="5"
+                         CharacterCasing="Upper"/>
+                
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <TextBlock Text="Result: " FontWeight="SemiBold" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="IntegerResult" 
+                               Text="{Binding IntegerResult}" 
+                               FontSize="18" 
+                               FontWeight="Bold"
+                               Foreground="#3498DB"
+                               VerticalAlignment="Center"
+                               Margin="5,0,0,0"/>
+                    <TextBlock x:Name="RomanValidation" 
+                               Text="{Binding RomanValidationText}"
+                               Foreground="{Binding RomanValidationColor}"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Integer to Roman Section -->
+        <GroupBox Grid.Row="4" Header="Integer → Roman" Padding="10">
+            <StackPanel>
+                <Label Content="Enter Number (1-3999):" FontWeight="SemiBold"/>
+                <TextBox x:Name="IntegerInput" 
+                         Text="{Binding IntegerInput, UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="16" 
+                         Padding="5"/>
+                
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <TextBlock Text="Result: " FontWeight="SemiBold" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="RomanResult" 
+                               Text="{Binding RomanResult}" 
+                               FontSize="18" 
+                               FontWeight="Bold"
+                               Foreground="#3498DB"
+                               VerticalAlignment="Center"
+                               Margin="5,0,0,0"/>
+                    <TextBlock x:Name="IntegerValidation" 
+                               Text="{Binding IntegerValidationText}"
+                               Foreground="{Binding IntegerValidationColor}"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Info Section -->
+        <Border Grid.Row="6" 
+                Background="White" 
+                BorderBrush="#2C3E50"
+                BorderThickness="1"
+                CornerRadius="5"
+                Padding="10">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Margin="0,0,0,5">The Three Cities at Work:</TextBlock>
+                <TextBlock TextWrapping="Wrap" Foreground="#7F8C8D">
+                    • C# (Humanoid City): Structure, validation, user interface
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" Foreground="#7F8C8D">
+                    • Rust (Titan-Machine Citadel): Core engine with memory safety
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" Foreground="#7F8C8D">
+                    • C++ (Hybrid City): Bridges managed and native code
+                </TextBlock>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

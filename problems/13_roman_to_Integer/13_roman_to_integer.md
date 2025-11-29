@@ -724,3 +724,313 @@ And I realize:
 For others.
 
 And for myself.
+
+---
+
+# 🖥️ **Chapter 10: The Desktop Forge — Building RomanForge**
+
+## **The Call to Build**
+
+After mastering Roman numerals across nine cities, I faced a new challenge:
+
+> "You've learned to solve the problem in every language.  
+> But can you make it **real** for others?"
+
+The elders of the cities spoke:
+
+> "Build a tool. A desktop application.  
+> Not just for yourself—but for anyone who needs to understand these ancient marks."
+
+And so I set out to build **RomanForge**.
+
+---
+
+## **The Three Cities Unite**
+
+This wasn't a journey through one city.
+
+This was about making **three cities work together** as one.
+
+### **C# — The Humanoid City (The Face)**
+
+C# became the face of RomanForge—the part humans would see and touch.
+
+I learned to shape windows and buttons with WPF:
+
+```csharp
+<TextBox Text="{Binding RomanInput, UpdateSourceTrigger=PropertyChanged}"
+         CharacterCasing="Upper"/>
+```
+
+Every keystroke would flow through MVVM bindings.
+
+Every validation message would appear in real-time.
+
+**The hero's animal trait**: 🦅 **Eagle Eyes** (sharp UI focus, seeing every detail)
+
+C# taught me that the interface is not decoration—it's the **first line of defense**.
+
+- Validate before processing.
+- Show errors gently.
+- Guide the user with clarity.
+
+### **Rust — The Titan-Machine Citadel (The Heart)**
+
+Rust held the **truth**.
+
+The core conversion engine lived here, guaranteed safe and fast:
+
+```rust
+#[no_mangle]
+pub unsafe extern "C" fn roman_to_int(roman_str: *const c_char) -> ConversionResult {
+    // Zero-cost, memory-safe conversion
+}
+```
+
+I exported functions through FFI (Foreign Function Interface), creating a bridge between worlds.
+
+**The hero's animal trait**: 🦈 **Shark Endurance** (relentless, unbreakable core)
+
+Rust taught me that **the heart must be trustworthy**.
+
+No matter how beautiful the UI, if the core lies, everything fails.
+
+### **C++ — The Hybrid City (The Bridge, Reserved)**
+
+C++ waited in the wings, ready for when I needed:
+- Advanced interop optimizations
+- Performance caching for repeated conversions
+- Native library integrations
+
+**The hero's animal trait**: 🐺 **Wolf Adaptability** (bridging between managed and unmanaged)
+
+C++ reminded me: **not every tool must be used immediately**.
+
+Sometimes, having the option is enough.
+
+---
+
+## **The Villains of the Desktop**
+
+### **👹 Villain 1: The Path Phantom**
+
+The first enemy was deceptive:
+
+```
+Error: File not found
+Error: Path does not exist
+```
+
+I ran commands from the **wrong directory**.
+
+Paths that looked correct weren't.
+
+**The Lesson**: Always know where you stand.
+
+```powershell
+cd C:\...\desktop_app  # Navigate first
+.\build-and-run.ps1    # Then execute
+```
+
+### **👹 Villain 2: The Architecture Mismatch**
+
+```
+BadImageFormatException
+DllNotFoundException
+```
+
+The DLL was x64, but .NET was running x86.
+
+Or vice versa.
+
+**The Lesson**: Harmony requires alignment.
+
+```powershell
+rustup default stable-x86_64-pc-windows-msvc
+```
+
+Both sides must speak the same "bitness".
+
+### **👹 Villain 3: The Missing Toolchain**
+
+```
+'cargo' is not recognized as a command
+```
+
+I assumed Rust was there.
+
+It wasn't.
+
+**The Lesson**: Verify your foundations before building.
+
+Install Rust. Restart the shell. Try again.
+
+---
+
+## **The Hero's Transformation — Hybrid Form**
+
+While building RomanForge, I discovered a new power:
+
+**The Hybrid Animal Form**.
+
+I combined traits from multiple cities at once:
+
+- 🦅 **Eagle Eyes** (C# UI precision)
+- 🦈 **Shark Endurance** (Rust core reliability)
+- 🐺 **Wolf Adaptability** (Cross-language bridging)
+
+This wasn't just about knowing each city individually.
+
+It was about **orchestrating them**.
+
+---
+
+## **The Build Script — My First Spell**
+
+I crafted a PowerShell script that automated everything:
+
+```powershell
+# build-and-run.ps1
+Write-Host "🏛️ RomanForge - Three Cities Builder"
+
+# 1. Check Rust
+# 2. Build Rust engine
+# 3. Build C# UI
+# 4. Copy DLL to output
+# 5. Launch application
+```
+
+For the first time, I created something that **ran itself**.
+
+A spell that, once cast, handled the entire journey.
+
+---
+
+## **Skills Gained in the Desktop Forge**
+
+### **🔗 Interoperability**
+
+I learned to make languages talk to each other:
+- **P/Invoke** in C# to call Rust's C ABI
+- **FFI exports** in Rust with `extern "C"`
+- **String marshaling** between managed and unmanaged memory
+
+### **🏗️ Architecture Thinking**
+
+I learned to separate concerns:
+- **UI** (C# WPF)
+- **Logic** (C# ViewModel)
+- **Validation** (C# + Rust)
+- **Core Engine** (Rust)
+
+Each layer had a **purpose**.
+
+### **🛡️ Multi-Layer Validation**
+
+I learned defense in depth:
+1. UI validates format before sending
+2. Rust validates again before processing
+3. Results are checked before displaying
+
+**Trust, but verify at every boundary.**
+
+### **🎯 User-Centered Design**
+
+I learned to think from the user's perspective:
+- What if they type invalid input?
+- What if the number is out of range?
+- How do I guide them gently?
+
+---
+
+## **The Final Launch**
+
+When I finally ran:
+
+```powershell
+.\build-and-run.ps1
+```
+
+And saw the window open…
+
+With two text boxes glowing softly…
+
+Ready to convert Roman numerals in **real-time**…
+
+I realized:
+
+> I didn't just build an app.
+>
+> I built a **bridge** between my knowledge and the world.
+
+---
+
+## **What RomanForge Taught Me**
+
+- **Knowledge alone isn't enough**. You must make it accessible.
+- **Cities must cooperate**. No single language does everything best.
+- **Validation is compassion**. Protecting users from errors is an act of care.
+- **Automation is power**. A good build script is worth its weight in gold.
+- **The UI is a conversation**. Every button, every message, speaks to the user.
+
+---
+
+## **The Hero's Reflection**
+
+Now, when someone asks me:
+
+> "Can you convert Roman numerals?"
+
+I don't just say "Yes, I know nine languages."
+
+I say:
+
+> "I can convert them.  
+> I can explain them.  
+> And I can give you a **tool** to do it yourself."
+
+And I open **RomanForge**.
+
+The desktop application where C#, Rust, and C++ work together.
+
+Where the hero's journey becomes **everyone's tool**.
+
+---
+
+## **Compassion Through Code**
+
+Building RomanForge taught me the deepest lesson:
+
+> Code isn't just logic.  
+> It's **communication**.
+
+Every error message I wrote with kindness.
+
+Every validation check I added with care.
+
+Every UI element I designed with empathy.
+
+Because I remember what it's like to struggle.
+
+To not understand.
+
+To face cryptic errors alone.
+
+RomanForge is my way of saying:
+
+> "I've been there.  
+> And I built this to help you."
+
+---
+
+**And that is how the hero learned to build not just code, but bridges.**
+
+**Not just solutions, but tools for others.**
+
+**Not just knowledge, but compassion in executable form.**
+
+---
+
+*The desktop app lives in: `problems/13_roman_to_Integer/desktop_app/`*  
+*Run it with: `.\build-and-run.ps1`*  
+*The three cities await.*
